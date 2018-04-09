@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Sample to define object and create the table element during runtime using string -->
+<html>
+	<head>
+		<style>
+			table, th, td {
+				border: 1px solid black;
+			}
+		</style>
+		<script type="text/javascript">
+			var object = {
+				fName:"Jeyashree",
+				lName: "Rajkumar",
+				fullName: function () {								//Method to return fullName
+			 		return this.fName + " " + this.lName;
+				}
+			 }
+			 
+
+			 function describeObject(){
+				var htmlString = " Test Button Click";
+				htmlString = "<table style=\"width:100; border: 1px solid black\" >"+	//Inline CSS
+								"<tr>" +
+									"<th> " +
+										"First Name " + 
+									"</th>" +
+									"<th> "+
+										"Last Name " +
+									"</th>" +
+									"<th>" +
+										"Full Name " +
+									"</th>" +
+								"</tr>" +
+								
+								"<tr>" +
+									"<td> " +
+										object.fName + 
+									"</td>" +
+									"<td> "+
+										object.lName +
+									"</td>" +
+									"<td>" +
+										object.fullName() +
+									"</td>" +
+								"</tr>" +
+							 "</table>";
+				document.write(htmlString);
+			 }
+			
+	
+		</script>
+
+	</head>
+	<body>
+		
+		<p id="p1">	click the buttons below to describe the details </p>
+		<button onclick="describeObject()">Describe Object</button>
+		
+
+		
+
+	</body>
+</html>

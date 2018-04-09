@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Demo Loops-->
+
+<html>
+	<head>
+		<style>
+			// to leave a space after button
+			p{
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+			button{
+				background-color: #006aff; /* Blue background */
+				border: 1px solid BLUE; /* Blue border */
+				color: white; /* White text */
+				margin: 10px 10px 10px 10px; /* Some margin */
+				padding: 10px 10px 10px 10px; /* Some padding */
+				cursor: pointer; /* Pointer/hand icon */
+				width: 25%; /* Set a width if needed */
+				display: block; /* Make the buttons appear vertically
+				
+			}
+			
+		</style>
+		<script>
+			var htmlString = "";
+			// Array of student object
+			var students =  [{name: "Alice",
+							  age: "18",
+							  birthday: {month: "7", day: "17", year: "1999"}},
+							 {name: "Peter",
+							  age: "19",
+							  birthday: {month: "5", day: "24", year: "1998"}},
+							 {name: "Low",
+							  age: "20",
+							  birthday: {month: "5", day: "20", year: "1997"}}];
+							  
+
+			// For Loop demonstration				  
+			function demoFor(){
+				htmlString = "";
+				var i;
+				// Using array index
+				for (i= 0; i<students.length; i++) {
+					htmlString = htmlString +
+							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
+							 "<h4> Age: " + students[i].age + "<br>" +
+							 	 " DOB: " + students[i].birthday.day + "-" +
+								            students[i].birthday.month + "-" +
+											students[i].birthday.year + "</h4><br>";
+				}
+
+				document.getElementById("result").innerHTML = htmlString;
+			}
+			
+			// Demo for for ... in loop
+			function demoForIn(){
+				htmlString = "";
+				var student;
+				for (student in students){							
+					htmlString = htmlString +
+							 "<h1> <strong> Name: " + students[student].name +  " </strong></h1>" +
+							 "<h4> Age: " + students[student].age + "<br>" +
+							 	 " DOB: " + students[student].birthday.day + "-" +
+								            students[student].birthday.month + "-" +
+											students[student].birthday.year + "</h4><br>";
+					
+				}	
+				document.getElementById("result").innerHTML = htmlString;
+			}
+			
+			
+			// Demo for While loop
+			function demoWhile(){
+				htmlString = "";
+				var i = 0;
+				// Condition will be verified before executing the loop. 
+				while (i<students.length){							
+					htmlString = htmlString +
+							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
+							 "<h4> Age: " + students[i].age + "<br>" +
+							 	 " DOB: " + students[i].birthday.day + "-" +
+								            students[i].birthday.month + "-" +
+											students[i].birthday.year + "</h4><br>";
+					i++;
+				}	
+				document.getElementById("result").innerHTML = htmlString;
+			}
+			
+			// Demo for Do ... While loop
+			function demoDoWhile(){
+				htmlString = "";
+				var i = 0;
+				// It will be executed at least once and the condition will be verified
+				do {	
+					htmlString = htmlString +
+							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
+							 "<h4> Age: " + students[i].age + "<br>" +
+							 	 " DOB: " + students[i].birthday.day + "-" +
+								            students[i].birthday.month + "-" +
+											students[i].birthday.year + "</h4><br>";
+					++i;
+				} while (i<0)
+				//}while (i<students.length)	//uncomment to display all the students
+				document.getElementById("result").innerHTML = htmlString;
+			}
+			
+			//Refresh the document on load
+			function refreshDocument(){
+				document.getElementById("demo").innerHTML = "click the buttons below to describe the details";
+				document.getElementById("result").innerHTML = ""
+			}
+		</script>
+	</head>
+	<body onload="refreshDocument()">
+		
+		<p id="demo"></p>
+		
+		<div class="btn_group">
+			<button onclick="demoFor()">Demo For Loop</button>
+			
+			<button onclick="demoForIn()">Demo For ... In Loop</button>
+			
+			<button onclick="demoWhile()">Demo While Loop</button>
+			
+			<button onclick="demoDoWhile()">Demo Do ... While Loop</button>
+			
+			<button onclick="refreshDocument()">Clear document</button>
+		</div>	
+		<p id="result"></p>
+	</body>
+</html>

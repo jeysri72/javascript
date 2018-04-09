@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function add() {
+			 var num1 = prompt("Number1 please?")	
+			 var num2 = prompt("Number2 please?")
+			 var sum = parseInt(num1) + parseInt(num2)
+			 //document.write("Sum = " , sum, ".")
+			 document.getElementById("result").innerHTML = "Sum = " + sum + "."
+			}
+		</script>
+		
+	</head>
+	<body>
+		<p id=result> </p>
+		<a  onclick="add()" > Click me!</a>
+	</body>
+</html>

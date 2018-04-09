@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- demo for condition statements if ... else & ternary -->
+<html>
+	<head>
+		<script>
+			function checkInput(){
+				var input = prompt("Your input please?");
+				
+				if (isNaN(input)){ //Is Not a Number 
+					result = "Input is not a number" ;
+				} else {
+					floatValue = parseFloat(input); // Convert to Float Value
+					intValue = parseInt(input); // Convert to Integer Value
+					/*
+						ternary operator
+						condition ? true part : false part
+					*/
+					result = (floatValue > intValue ? "Input is a float" : "Input is an Integer");
+				}
+				document.write("Result => ");
+				document.write(result);
+			}
+
+		</script>
+	</head>
+	<body>
+		
+		<p>	Input different values and try </p>
+		<button onclick="checkInput()">Try Me!</button>
+	</body>
+</html>

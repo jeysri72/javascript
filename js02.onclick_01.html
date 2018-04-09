@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function sayHello() {
+			 var name;	name = prompt("Your name please?")	
+			 //document.write("Hello " , name, "!")
+			 document.getElementById("hello").innerHTML = "Hello " + name + "!"
+			}
+		</script>
+		
+		<style>
+			a:link { /* unvisited link */
+				color: red;
+			}
+			a:visited { /* visited link */
+				color: blue;
+			}
+			a:hover { /* moused over link */
+				color: orange;
+				border-bottom: 1px solid blue;
+				text-decoration: none;
+			}
+			a:active { /* current link */
+				color: purple;
+			}
+			a:focus {  /* focused link */
+				color: green;
+			}
+			a {
+				text-decoration: none;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		
+		<p id=hello> </p>
+		<a  onclick="sayHello()" > Click me to say hello!</a>
+	</body>
+</html>

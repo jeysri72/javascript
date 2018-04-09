@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function checkInput(){
+				var input = "Jey" // String
+				
+				var result = checkType(input);
+				document.write("Result => ");
+				document.write(result + "   (" + input +")" );
+				document.write("<br>")
+		
+				input = 5; // Number
+				result = checkType(input);
+				document.write("Result => ");
+				document.write(result + "   (" + input +")" );
+				document.write("<br>")
+				
+				input = true; // Boolean
+				result = checkType(input);
+				document.write("Result => ");
+				document.write(result + "   (" + input +")" );
+				document.write("<br>")
+				
+				input = ["A", "B", "C"]; // Array - Object
+				result = checkType(input);
+				document.write("Result => ");
+				document.write(result + "   (" + input +")" );
+				document.write("<br>")
+				
+				input = {					
+							name : "John",
+							hair: "black",
+							eyes: "black",
+							height: "120cm",
+							weight: "40kg"
+						};
+				result = checkType(input);
+				document.write("Result => ");
+				document.write(result + "   (" + input +")" );
+				document.write("<br>")
+			}
+			
+			function checkType(value){
+				switch  (typeof value){
+					case "string":
+						result = "Parameter is string";
+						break;
+					case "number":
+						result = "Parameter is number";
+						break;
+					case "boolean":
+						result = "Parameter is boolean";
+						break;
+					case "object":
+						result = "Parameter is object";
+						break;
+					default:
+						result = "Un-identified";
+				}
+				return result;
+			}
+
+		</script>
+	</head>
+	<body>
+		
+		<p>	Display datatype using switch case </p>
+		<button onclick="checkInput()">Try Me!</button>
+	</body>
+</html>

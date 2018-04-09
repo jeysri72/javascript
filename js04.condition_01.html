@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function checkInput(){
+				var input = prompt("Your input please?");
+				input = parseInt(input);
+				
+				
+				if (isNaN(input)){ //Is Not a Number 
+					result = "Input is not a number" ;
+				} else {
+					result = (typeof input == "number" ? "Input is a Number" : "Input is not a Number");
+				}
+				document.write("Result => ");
+				document.write(result);
+			}
+
+		</script>
+	</head>
+	<body>
+		
+		<p>	Input different values and try </p>
+		<button onclick="checkInput()">Try Me!</button>
+	</body>
+</html>

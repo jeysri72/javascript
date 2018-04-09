@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Sample program to create drop down list body on load and demo event and filter function  -->
+<html>
+	<head>
+		<script>
+			var countries = {		// Country object
+				SG: 65,
+				IN: 91,
+				MY: 60,
+				AU: 61,
+				US: 1
+			};
+			function myCountries(){
+				var selectionBox = document.createElement("select"); // Create the element - Select
+				var opt; 
+				
+				opt = document.createElement('option');				// Create the element - Option
+				opt.value = "AU";									// Set value for the option
+				opt.text = "Australia";								// Set text for the option
+				selectionBox.appendChild(opt);						// Append option to the select
+				
+				opt = document.createElement('option');
+				opt.value = "IN";
+				opt.innerHTML = "India";
+				selectionBox.appendChild(opt);
+	
+				opt = document.createElement('option');
+				opt.value = "SG";
+				opt.innerHTML = "Singapore";
+				selectionBox.appendChild(opt);
+				
+				opt = document.createElement('option');
+				opt.value = "US";
+				opt.innerHTML = "United States";
+				selectionBox.appendChild(opt);
+				
+				document.body.appendChild(selectionBox);
+				
+				selectionBox.onchange = function(){		// Onchange event 
+					country = Object.keys(countries).filter(function(key) { // Filter value based on the key
+						if (key === selectionBox.options[selectionBox.selectedIndex].value){ 
+							document.getElementById("demo").innerHTML = key + " - " + countries[key] ;
+						}
+					});
+				}
+			}
+		</script>
+
+	</head>
+	<body onload="myCountries()"> <!-- Populate country list onload -->
+		<p id="demo"> <p>
+	</body>
+</html>

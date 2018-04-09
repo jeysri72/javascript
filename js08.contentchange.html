@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Sample to define object and override the document -->
+<html>
+	<head>
+		<script type="text/javascript">
+			var object = {
+				fName:"Jeyashree",
+				lName: "Rajkumar",
+				fullName: function () {								//Method to return fullName
+			 		return this.fName + " " + this.lName;
+				}
+			 }
+			 
+
+			 function describeObject(){
+				var htmlString = " Test Button Click";
+				htmlString = "First Name: " + object.fName + " <br>" +
+							 "Last Name: " + object.lName + " <br>" +
+							 "Full Name: " + object.fullName();
+				document.write(htmlString);
+			 }
+			
+	
+		</script>
+	</head>
+	<body>
+		
+		<p id="p1">	click the buttons below to describe the details </p>
+		<button onclick="describeObject()">Describe Object</button>
+
+	</body>
+</html>

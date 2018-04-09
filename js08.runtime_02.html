@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Sample to define object and create the table element during runtime using DOM -->
+<html>
+	<head>
+		<style>
+			table, th, td {
+				border: 1px solid black;
+				// uncomment margin-bottom and see the effect. Best practice to avoid <br>
+				//margin-bottom: 2em;								
+			}
+		</style>
+		<script type="text/javascript">
+			var object = {
+				fName:"Jeyashree",
+				lName: "Rajkumar",
+				fullName: function () {								//Method to return fullName
+			 		return this.fName + " " + this.lName;
+				}
+			 }
+			 
+
+			 function describeObject(){
+				var eTable = document.createElement("table");    	// Create a <table> element
+					
+				
+				var eTblRow = document.createElement('tr');   		// Create Table Row
+
+				var th1 = document.createElement('th');				// Create Header Element	
+				var th2 = document.createElement('th');
+				var th3 = document.createElement('th');
+				
+				var text1 = document.createTextNode('First Name');	//Text node for the header
+				var text2 = document.createTextNode('Last Name');
+				var text3 = document.createTextNode('Full Name');
+
+				th1.appendChild(text1);								//Append text node as achild to header
+				th2.appendChild(text2);
+				th3.appendChild(text3);
+				
+				eTblRow.appendChild(th1);							//Append header to row
+				eTblRow.appendChild(th2);
+				eTblRow.appendChild(th3);
+
+				eTable.appendChild(eTblRow);						// Append header row to table
+				
+				eTblRow = document.createElement('tr'); 
+				
+				
+				
+				eTable.appendChild(eTblRow);						// Data row
+				// Add the data from object
+				
+				var td1 = document.createElement('td');
+				var td2 = document.createElement('td');
+				var td3 = document.createElement('td');
+				
+				text1 = document.createTextNode(object.fName);
+				text2 = document.createTextNode(object.lName);
+				text3 = document.createTextNode(object.fullName());
+				
+				td1.appendChild(text1);
+				td2.appendChild(text2);
+				td3.appendChild(text3);
+				
+				eTblRow.appendChild(td1);
+				eTblRow.appendChild(td2);
+				eTblRow.appendChild(td3);
+
+				eTable.appendChild(eTblRow);
+				
+				document.body.appendChild(eTable);
+			 }
+			
+	
+		</script>
+
+	</head>
+	<body>
+		
+		<p id="p1">	click the buttons below to describe the details </p>
+		<button onclick="describeObject()">Describe Object</button>
+
+		
+
+	</body>
+</html>
