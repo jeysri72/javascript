@@ -2,31 +2,33 @@
 	<head>
 		<script type="text/javascript">
 		
-			var name = "Jey"; //Global variable
-			function sayHello() {
-				var name = prompt("Your name please?"); //Local variable 
+			var xxx = "Jey"; //Global variable. It can be accessible by all the functions 
+			var name = "ACWD";
+
+			function sayHello() { // Without parameter
+				var xxx = prompt("Your name please?"); //Local variable (Global variable redefined as local variable )
 				// - variable name is same as the global variale
-				// To demo local variable get Precedence over global variable with in the function
-				document.getElementById("header1").innerHTML = "Hello " + name + "!";
+				// To demo local variable gets Precedence over global variable with in the function
+				document.getElementById("header1").innerHTML = "Hello " + xxx + "!";
+				document.getElementById("header2").innerHTML = "Hello " + name + "!";
 			}
 			
-			function myFunction() {
-				// name - Global variable
+			function myFunction() { // Without paramater
 			    document.getElementById("header1").innerHTML = "Hello " + name + "!";
 			}
 			
-			function sayHello2(name) {
-				// name - parameter passed
+			function sayHello2(name) { // name - function parameter
 				document.getElementById("header1").innerHTML = "Hello " + name + "!";
 			}
 		</script>
 	</head>
 	<body onload="myFunction()">
 		<h1 id="header1">Hello </h1>
+		<h1 id="header2">Hello </h1>
 		<a  onclick="sayHello()" > Click me to say hello! </a>
 		<br/>
 		<br/>
-		<button onclick="sayHello2(window.name)">Original Name please?</button>
+		<button onclick="sayHello2('John Peter')">Original Name please?</button>
 		<!-- window.name - to get the variable name from the browser object model -->
 	</body>
 </html>
