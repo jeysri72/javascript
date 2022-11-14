@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<!-- Demo Loops-->
-
 <html>
 	<head>
+
 		<style>
-			// to leave a space after button
+			
 			p{
 				margin-top: 1em;
 				margin-bottom: 1em;
@@ -17,30 +15,73 @@
 				padding: 10px 10px 10px 10px; /* Some padding */
 				cursor: pointer; /* Pointer/hand icon */
 				width: 25%; /* Set a width if needed */
-				display: block; /* Make the buttons appear vertically
+				display: block; /* Make the buttons appear vertically*/
 				
 			}
 			
 		</style>
-		<script>
-			var htmlString = "";
-			// Array of student object
-			var students =  [{name: "Alice",
-							  age: "18",
-							  birthday: {month: "7", day: "17", year: "1999"}},
-							 {name: "Peter",
-							  age: "19",
-							  birthday: {month: "5", day: "24", year: "1998"}},
-							 {name: "Low",
-							  age: "20",
-							  birthday: {month: "5", day: "20", year: "1997"}}];
-							  
 
-			// For Loop demonstration				  
+		<script type="text/javascript">
+			
+			var aboutMe = {
+				name : "John",
+				hair: "black",
+				eyes: "black",
+				height: "120cm",
+				weight: "40kg"
+			};
+			
+			var htmlString = "";
+			
+			function describeJohn(){
+				htmlString =  "Name: " + aboutMe.name + "<br>" +
+								"Color of hair: " + aboutMe.hair + "<br>" +
+								"Color of eyes: " + aboutMe.eyes + "<br>" +
+								"Height: " + aboutMe.height + "<br>" +
+								"Weight: " + aboutMe.weight
+				document.getElementById("p1").innerHTML = htmlString;
+				
+			}
+			
+			
+			var students =  [
+				{
+					name: "Alice",	// 0							//JSON
+					age: "18",
+					 birthday: {
+							month: "7", 
+							day: "17", 
+							year: "1999"
+						}
+				},
+				{
+					name: "Peter", // 1
+					age: "19",
+					birthday: {month: "5", day: "24", year: "1998"}
+				},
+				{
+					name: "Low", // 2
+					age: "20",
+					birthday: {month: "5", day: "20", year: "1997"}
+				}
+			];
+							  
+			// Array elements are going to indentified using numbered index 
+			// Numbered Index - [0, 1, 2]  index stars from 0 
+			// Array Value  x = [A, B, C] - 
+			// x[0] => A
+			// x[1] => B
+			// x[2] => C
+			// x[3] => Error / Not avaialble/ undefined
+							  
 			function demoFor(){
-				htmlString = "";
+				htmlString = ""; // Initialization -"" Empty String, int = -1
 				var i;
 				// Using array index
+				// Begin index, condition to end, incrementor or decrementor
+				// Array index always begin with zero 
+				// Array Length - returns the number of elements in an array 
+				// students.length => 3 
 				for (i= 0; i<students.length; i++) {
 					htmlString = htmlString +
 							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
@@ -50,10 +91,9 @@
 											students[i].birthday.year + "</h4><br>";
 				}
 
-				document.getElementById("result").innerHTML = htmlString;
+				document.getElementById("p1").innerHTML = htmlString;
 			}
 			
-			// Demo for for ... in loop
 			function demoForIn(){
 				htmlString = "";
 				var student;
@@ -66,67 +106,55 @@
 											students[student].birthday.year + "</h4><br>";
 					
 				}	
-				document.getElementById("result").innerHTML = htmlString;
+				document.getElementById("p1").innerHTML = htmlString;
 			}
-			
-			
-			// Demo for While loop
 			function demoWhile(){
 				htmlString = "";
-				var i = 0;
-				// Condition will be verified before executing the loop. 
-				while (i<students.length){							
+				var i = 0; // Initailize before while
+				while (i<students.length){		 // Exit condition					
 					htmlString = htmlString +
 							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
 							 "<h4> Age: " + students[i].age + "<br>" +
 							 	 " DOB: " + students[i].birthday.day + "-" +
 								            students[i].birthday.month + "-" +
 											students[i].birthday.year + "</h4><br>";
-					i++;
+					i++; // Incrementor/ decrementor
 				}	
-				document.getElementById("result").innerHTML = htmlString;
+				document.getElementById("p1").innerHTML = htmlString;
 			}
-			
-			// Demo for Do ... While loop
 			function demoDoWhile(){
 				htmlString = "";
-				var i = 0;
-				// It will be executed at least once and the condition will be verified
-				do {	
+				var i = 0; // Intialize
+				
+				do {	// Execute the loop
 					htmlString = htmlString +
 							 "<h1> <strong> Name: " + students[i].name +  " </strong></h1>" +
 							 "<h4> Age: " + students[i].age + "<br>" +
 							 	 " DOB: " + students[i].birthday.day + "-" +
 								            students[i].birthday.month + "-" +
 											students[i].birthday.year + "</h4><br>";
-					++i;
-				} while (i<0)
-				//}while (i<students.length)	//uncomment to display all the students
-				document.getElementById("result").innerHTML = htmlString;
+					++i; // Incrementor/ Decrementor
+				}while (i<students.length)	 // Check the condition 
+				document.getElementById("p1").innerHTML = htmlString;
 			}
-			
-			//Refresh the document on load
 			function refreshDocument(){
-				document.getElementById("demo").innerHTML = "click the buttons below to describe the details";
-				document.getElementById("result").innerHTML = ""
+				document.getElementById("p1").innerHTML = "click the buttons below to describe the details";
 			}
 		</script>
 	</head>
 	<body onload="refreshDocument()">
 		
-		<p id="demo"></p>
-		
-		<div class="btn_group">
-			<button onclick="demoFor()">Demo For Loop</button>
-			
-			<button onclick="demoForIn()">Demo For ... In Loop</button>
-			
-			<button onclick="demoWhile()">Demo While Loop</button>
-			
-			<button onclick="demoDoWhile()">Demo Do ... While Loop</button>
-			
-			<button onclick="refreshDocument()">Clear document</button>
-		</div>	
-		<p id="result"></p>
+		<p id="p1">	 </p>
+		<button onclick="describeJohn()">Describe John</button>
+		<br>
+		<button onclick="demoFor()">For Loop</button>
+		<br>
+		<button onclick="demoForIn()">For ... In</button>
+		<br>
+		<button onclick="demoWhile()">While</button>
+		<br>
+		<button onclick="demoDoWhile()">Do ... While</button>
+		<br>
+		<button onclick="refreshDocument()">Clear</button>
 	</body>
 </html>
